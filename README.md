@@ -1,4 +1,4 @@
-# Disc Playlist Creator
+# Disc m3u Creator
 
 A simple m3u playlist creator in Python aimed at muOS and Retro Acheivements users.
 
