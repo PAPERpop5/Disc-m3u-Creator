@@ -24,7 +24,8 @@ def create_chd_playlists(directory):
     series_dict = {}
     
     # Pattern specifically for "(Disc N).chd" format
-    disc_pattern = re.compile(r'(.*?)\(Disc\s+(\d+)\)\.chd$', re.IGNORECASE)
+    disc_pattern = re.compile(r'(.*?)\(Disc\s+(\d+)\)(.*?)\.chd$', re.IGNORECASE)
+
     
     # Process each file
     for file in files:
@@ -62,8 +63,7 @@ def create_chd_playlists(directory):
         
         # Create the m3u playlist
         with open(output_file, 'w', encoding='utf-8') as playlist:
-            playlist.write("#EXTM3U\n")
-            
+
             for original_file, new_file in file_pairs:
                 # Rename the original file
                 original_path = os.path.join(directory, original_file)
@@ -77,9 +77,8 @@ def create_chd_playlists(directory):
                 except Exception as e:
                     print(f"Error renaming {original_file}: {e}")
                 
-                # Use absolute paths for better compatibility
-                file_path = os.path.abspath(new_path)
-                playlist.write(f"{file_path}\n")
+
+                playlist.write(f"{new_file}\n")
         
         print(f"Created playlist: {output_file} with {len(file_pairs)} disc(s) for '{series_name}'")
     
