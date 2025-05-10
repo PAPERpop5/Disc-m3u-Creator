@@ -6,12 +6,12 @@ from pathlib import Path
 
 def create_chd_playlists(directory):
     """
-    Find multi-disc CHD files, rename them with _ prefix, and create playlists.
+    Find multi-disc files, rename them with _ prefix, and create playlists.
     
     Args:
-        directory (str): Directory containing CHD files
+        directory (str): Directory containing disc files
     """
-    print(f"Processing CHD files in: {directory}")
+    print(f"Processing files in: {directory}")
     
     # Get all files in the directory
     try:
@@ -46,7 +46,7 @@ def create_chd_playlists(directory):
     
     # Check if we found any series
     if not series_dict:
-        print("No multi-disc CHD files found")
+        print("No multi-disc files found")
         return False
     
     # Sort discs by disc number within each series
@@ -89,8 +89,8 @@ def create_chd_playlists(directory):
 def main():
     # Show banner
     print("=" * 70)
-    print("CHD Disc Playlist Generator")
-    print("Creates playlists for multi-disc CHD files and renames originals with _ prefix")
+    print("Disc Playlist Creator")
+    print("Creates m3u for multi-disc games for use in muOS")
     print("=" * 70)
     
     # Get directory from command line argument or use current directory
