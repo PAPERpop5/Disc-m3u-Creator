@@ -15,3 +15,5 @@ Download the Disc_Playlist_Creator file in dist and run it in the folder with th
 To specify a folder open a terminal in the folder where you have placed the executable and run the following:
 
 `./Disc_Playlist_Generator /path/to/discs`
+
+If you're on windows you can install python and run the .py file as a python script.
